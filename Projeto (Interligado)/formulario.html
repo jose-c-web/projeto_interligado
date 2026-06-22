@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Registro de Manutenção de Máquinas</title>
+    <link rel="icon" type="image/png" href="IMG/LogoEmpresa.png">
+    <style>
+
+    :root {
+      --azul-principal: #004080;
+      --azul-escuro: #002d5a;
+      --cinza-claro: #f4f6f9;
+      --branco: #fff;
+      --sombra: 0 4px 10px rgba(0,0,0,0.08);
+      --radius: 10px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+       
+        min-height: 100vh; 
+        
+       
+        background-image: url("IMG/fundo2.jpg"); 
+        
+        
+        background-attachment: fixed; 
+        background-size: cover; 
+        background-repeat: no-repeat;
+        background-position: center center; 
+        
+        color: #333;
+        line-height: 1.6;
+
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+   
+    section {
+      
+      background: var(--branco);
+      border-radius: var(--radius);
+      box-shadow: var(--sombra);
+      padding: 45px 55px;
+      margin-bottom: 25px;
+     
+      max-width: 450px; 
+      width: 90%;
+    }
+
+    
+    header {
+      background: var(--azul-principal);
+      color: var(--branco);
+      text-align: center;
+      padding: 2rem 1rem;
+      box-shadow: var(--sombra);
+      width: 100%;
+      position: fixed; 
+      top: 0;
+      z-index: 100;
+    }
+    
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    nav {
+      background: var(--branco);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 15px 10px;
+      box-shadow: var(--sombra);
+      border-radius: var(--radius);
+      margin: 20px auto;
+      max-width: 950px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--azul-principal);
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: var(--radius);
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: var(--azul-principal);
+      color: var(--branco);
+      transform: translateY(-2px);
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 10px;
+    }
+
+    section h2 {
+      color: var(--azul-principal);
+      margin-bottom: 15px;
+      border-left: 5px solid var(--azul-principal);
+      padding-left: 10px;
+      font-weight: 600;
+      font-size: 2.0em;
+    }
+
+    h3 {
+      color: var(--azul-escuro);
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 2.6em;
+    
+    }
+
+    p {
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #f9fbfd;
+      padding: 50px;
+      border-radius: var(--radius);
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+      margin-top: 10px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #444;
+    }
+
+    input, select, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+      font-size: 1em;
+      transition: 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--azul-principal);
+      box-shadow: 0 0 4px rgba(0,64,128,0.3);
+    }
+
+    button {
+      background: linear-gradient(135deg, var(--azul-principal), var(--azul-escuro));
+      color: var(--branco);
+      padding: 10px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: var(--azul-escuro);
+      transform: translateY(-2px);
+      box-shadow: var(--sombra);
+    }
+
+
+    
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.3rem;
+      }
+
+      section {
+        padding: 15px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      button {
+        font-size: 0.9rem;
+      }
+    }
+    #link{
+        color: white;
+    }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Sistema de Registro de Manutenção de Máquinas</h1>
+</header>
+<main>
+    <div class="form-container">
+        <form id="cadastroForm" action="#" method="POST">
+            <div class="input-group">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="input-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="E-mail" required>
+            </div>
+             <div class="input-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+             <div class="input-group">
+                <label for="confirmar-senha">Confirmar Senha:</label>
+                <input type="password" id="confirmar-senha" name="confirmar-senha" required>
+             </div>
+             <div class="input-group">
+                <label for="genero">Gênero:</label>
+                <select id="genero" name="genero">
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outros">Outros</option>
+                </select>
+             </div>
+             <div>
+                <label for="tipo">Tipo de Usuário:</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Selecione</option>
+          <option value="tecnico">Técnico</option>
+          <option value="gestor">Gestor</option>
+        </select>
+             </div>
+             <div class="input-group">
+                <label for="termos">
+                    <input type="checkbox" id="termos" name="termos" required>Aceito os termos e condições.
+                </label>
+            </div>
+            <p id="mensagem"></p>
+            <button type="submit" class="sumit-btn">Cadastrar</button>
+            
+            <p>Já tem uma conta?<a href="inicio.html">Faça Login aqui</a></p>
+            
+
+        </form>    
+    </div>
+</main>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>  
+   <script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyClNzm5k4vFnGcpK_6pdnJyB6WkOhrgvlY",
+        authDomain: "dados-maquinas.firebaseapp.com",
+        databaseURL: "https://dados-maquinas-default-rtdb.firebaseio.com",
+        projectId: "dados-maquinas",
+        storageBucket: "dados-maquinas.firebasestorage.app",
+        messagingSenderId: "501507462769",
+        appId: "1:501507462769:web:9c87dc243feecf6d16edd0"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+    
+    const mensagemElement = document.getElementById('mensagem');
+
+    document.getElementById('cadastroForm').addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        
+        const nomeCadastro = document.getElementById('nome').value.trim();
+        const emailCadastro = document.getElementById('email').value.trim();
+        const SenhaCadastro = document.getElementById('senha').value.trim();
+        const ConfirmarSenhaCadastro = document.getElementById('confirmar-senha').value.trim();
+        const generoCadastro = document.getElementById('genero').value.trim(); 
+        const TipoCadastro = document.getElementById('tipo').value.trim();
+
+        if (SenhaCadastro !== ConfirmarSenhaCadastro) {
+            mensagemElement.innerHTML = "<p style='color: red; font-weight: bold;'>As senhas digitadas não são iguais. Por favor, verifique.</p>";
+            return;
+        }
+        mensagemElement.innerHTML = "<p style='color: orange;'>As senhas são iguais. Cadastrando usuário...</p>";
+
+        database.ref('usuarios').push({ 
+            nomeUsuario: nomeCadastro,
+            EmailUsuario: emailCadastro,
+            SenhaUsuario: SenhaCadastro,
+            GeneroUsuario: generoCadastro,
+            TipoUsuario: TipoCadastro
+        })
+        .then(() => {
+            mensagemElement.innerHTML = '<p style="color: green; font-weight: bold;">Cadastro realizado com sucesso!</p>';
+            this.reset(); 
+        })
+        .catch(error => {
+            mensagemElement.innerHTML = `<p style="color: red;">Erro ao cadastrar: ${error.message}</p>`;
+        });
+    });
+</script>
+</body>
+</html>

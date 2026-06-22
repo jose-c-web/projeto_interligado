@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Registro de Manutenção de Máquinas</title>
+    <link rel="icon" type="image/png" href="IMG/LogoEmpresa.png">
+    <style>
+
+    :root {
+      --azul-principal: #004080;
+      --azul-escuro: #002d5a;
+      --cinza-claro: #f4f6f9;
+      --branco: #fff;
+      --sombra: 0 4px 10px rgba(0,0,0,0.08);
+      --radius: 10px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+       
+        min-height: 100vh; 
+        
+       
+        background-image: url("IMG/fundo2.jpg"); 
+        
+        
+        background-attachment: fixed; 
+        background-size: cover; 
+        background-repeat: no-repeat;
+        background-position: center center; 
+        
+        color: #333;
+        line-height: 1.6;
+
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+   
+    section {
+      
+      background: var(--branco);
+      border-radius: var(--radius);
+      box-shadow: var(--sombra);
+      padding: 45px 55px;
+      margin-bottom: 25px;
+     
+      max-width: 450px; 
+      width: 90%;
+    }
+
+    
+    header {
+      background: var(--azul-principal);
+      color: var(--branco);
+      text-align: center;
+      padding: 2rem 1rem;
+      box-shadow: var(--sombra);
+      width: 100%;
+      position: fixed; 
+      top: 0;
+      z-index: 100;
+    }
+    
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    nav {
+      background: var(--branco);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 15px 10px;
+      box-shadow: var(--sombra);
+      border-radius: var(--radius);
+      margin: 20px auto;
+      max-width: 950px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--azul-principal);
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: var(--radius);
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: var(--azul-principal);
+      color: var(--branco);
+      transform: translateY(-2px);
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 10px;
+    }
+
+    section h2 {
+      color: var(--azul-principal);
+      margin-bottom: 15px;
+      border-left: 5px solid var(--azul-principal);
+      padding-left: 10px;
+      font-weight: 600;
+      font-size: 2.0em;
+    }
+
+    h3 {
+      color: var(--azul-escuro);
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 2.6em;
+    
+    }
+
+    p {
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #f9fbfd;
+      padding: 50px;
+      border-radius: var(--radius);
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+      margin-top: 10px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #444;
+    }
+
+    input, select, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+      font-size: 1em;
+      transition: 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--azul-principal);
+      box-shadow: 0 0 4px rgba(0,64,128,0.3);
+    }
+
+    button {
+      background: linear-gradient(135deg, var(--azul-principal), var(--azul-escuro));
+      color: var(--branco);
+      padding: 10px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: var(--azul-escuro);
+      transform: translateY(-2px);
+      box-shadow: var(--sombra);
+    }
+
+
+    
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.3rem;
+      }
+
+      section {
+        padding: 15px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      button {
+        font-size: 0.9rem;
+      }
+    }
+    #link{
+        color: white;
+    }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Sistema de Registro de Manutenção de Máquinas</h1>
+</header>
+<main>
+    <section id="login">
+      <h2>Login de Usuário</h2>
+      <form id="loginForm">
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" required />
+        
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required />
+        
+        <label for="tipo">Tipo de Usuário:</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Selecione</option>
+          <option value="tecnico">Técnico</option>
+          <option value="gestor">Gestor</option>
+        </select>
+        
+        <button id="login_tecnicos" type="submit">Entrar</button>
+         <p>Não tem conta? <a href="formulario.html">Cadastra-se Aqui</a></p>
+      </form>
+      <p id="mensagem"></p>
+    </section>
+</main>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>  
+   <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyClNzm5k4vFnGcpK_6pdnJyB6WkOhrgvlY",
+  authDomain: "dados-maquinas.firebaseapp.com",
+  databaseURL: "https://dados-maquinas-default-rtdb.firebaseio.com",
+  projectId: "dados-maquinas",
+  storageBucket: "dados-maquinas.firebasestorage.app",
+  messagingSenderId: "501507462769",
+  appId: "1:501507462769:web:9c87dc243feecf6d16edd0"
+};
+
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
+
+function exibirUsuarios(dados, lista) {
+    lista.innerHTML = "";
+    if (!dados) {
+      lista.innerHTML = "<p>Nenhum usuário cadastrado ainda.</p>";
+      return;
+    }
+    for (let id in dados) {
+      const primeiroId = Object.keys(dados)[0]; // pega só o primeiro id
+      const usuario = dados[primeiroId];
+      const card = document.createElement('div');
+      card.style.border = "1px solid #ccc";
+      card.style.borderRadius = "5px";
+      card.style.marginBottom = "10px";
+      card.style.background = "#e7e9f0";
+      card.style.color = "#000";
+      card.style.fontWeight = "600";
+      card.style.padding = "10px";
+      card.style.fontSize = "1rem";
+      card.style.cursor = "pointer";
+      card.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
+      card.style.transition = "background-color 0.3s ease, box-shadow 0.2s ease";
+      card.innerHTML = `<strong>Link:</strong> <a href="loginreal.html">Entrar</a>`;
+      lista.appendChild(card);
+    }
+  }
+
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const usuario = document.getElementById('usuario').value.trim();
+    const senha = document.getElementById('senha').value.trim();
+    const tipo = document.getElementById('tipo').value.trim();
+    const lista_aluno = document.getElementById('mensagem');
+    lista_aluno.innerHTML = "<p>Buscando...</p>";
+
+    if (usuario === "" || senha === "" || tipo === "" ) {
+      lista_aluno.innerHTML = "<p>Digite usuário, senha e tipo.</p>";
+      return;
+    }
+
+    const alunosRef = database.ref('usuarios')
+      .orderByChild('nomeUsuario')
+      .equalTo(usuario);
+
+    alunosRef.once('value')
+      .then(snapshot => {
+        const dados = snapshot.val();
+        let autenticado = false;
+        let dadosUsuarioAutenticado = null; // Para guardar o registro se autenticado
+
+        if (dados) {
+          for (let id in dados) {
+            // 🚨 CORREÇÃO: Usando && para verificar se a senha E o tipo estão corretos
+            if (dados[id].SenhaUsuario === senha && dados [id].TipoUsuario === tipo) {
+              autenticado = true;
+              dadosUsuarioAutenticado = { [id]: dados[id] };
+              break;
+            }
+          }
+        }
+        
+        if (autenticado) {
+          exibirUsuarios(dadosUsuarioAutenticado, lista_aluno);
+        } else {
+          lista_aluno.innerHTML = "<p>Usuário, senha ou tipo incorreto.</p>";
+        }
+      })
+      .catch(error => {
+        lista_aluno.innerHTML = "<p>Erro na busca: " + error.message + "</p>";
+      });
+  });
+   </script> 
+</body>
+</html>
